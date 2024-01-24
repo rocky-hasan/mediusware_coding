@@ -1,5 +1,3 @@
-from typing import Any
-from django.db.models.query import QuerySet
 from django.shortcuts import render
 from django.urls import reverse_lazy
 from django.views.generic import View,ListView,DetailView,UpdateView,DeleteView
@@ -10,7 +8,7 @@ class TaskCreate(CreateView):
     model=Task
     fields='__all__'
     template_name='createtask.html'
-    success_url=reverse_lazy('create-task')
+    success_url=reverse_lazy('list-task')
     def get_queryset(self):
         return Task.objects.all()
     

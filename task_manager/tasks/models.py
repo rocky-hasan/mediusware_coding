@@ -2,6 +2,11 @@ from django.db import models
 # Create your models here.
 
 
+class User(models.Model):
+    username=models.CharField(max_length=100)
+    def __str__(self) -> str:
+        return str(self.username)
+
 Priority_Choices=(
     ('low','low'),
     ('medium','medium'),
@@ -9,6 +14,7 @@ Priority_Choices=(
 )
 
 class Task(models.Model):
+    task_create_by=models.ForeignKey(User,on_delete=models.CASCADE, null=True,blank=True)
     title=models.CharField(max_length=100)
     description=models.TextField()
     image=models.ImageField(upload_to='Task/',blank=True,null=True)
