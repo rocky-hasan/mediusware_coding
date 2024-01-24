@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% block content %}
+    <h1>Task Manager Create </h1>
+    <form method="post" action="" enctype="multipart/form-data">
+        {% csrf_token %}
+        <table class="table table-bordered">
+            {{form.as_p}}
+            <tr>
+                <td colspan="2">
+                    <button type="submit">Create Task</button>
+                </td>
+            </tr>
+        </table>
+	</form>
+        <a href="{% url 'list-task' %}">Home Page </a>
+{% endblock content %}

@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+{% block content %}
+    <h1 >Task Manager </h1>
+    <div class='container'>
+                <div class="card-body">
+                   
+                    {% for data in all_data %}
+                        <div class="col-md-4 mb-4">
+                           <div class="card">
+                           {% if data.image %}
+                                 <img src="{{ data.image.url }}" class="card-img-top img-fluid" alt="Task Image">
+                            {% else %}
+                                <p>No Images</p>
+                            {% endif %}
+                                <div class="card-body">
+                                    <h5 class="card-title">
+                                        <a href="{% url 'detail-task' data.id %}">{{ data.title }}</a>
+                                    </h5>
+                                    <p class="card-text">Description: {{ data.description }}</p>
+                                    <p class="card-text">Created: {{ data.create_date }}</p>
+                                    <p class="card-text">Due Date: {{ data.due_date }}</p>
+                                    <p class="card-text">Priority: {{ data.priority }}</p>
+                                    <p class="card-text">
+                                        Task Complete: {% if data.is_complete %}Done{% else %}Not Done{% endif %}
+                                    </p>
+                                    
+                                </div>
+                            </div>
+                            <div>
+                                 <a href="{% url 'create-task' %}" class='btn btn-primary' >Create </a>
+                                 <a href="{% url 'detail-task' data.id  %}" class='btn btn-primary' > Detail</a>
+                                 <a href="{% url 'update-task' data.id  %}" class='btn btn-primary' > Update</a>
+                                 <a href="{% url 'delete-task' data.id  %}" class='btn btn-primary' > Delete </a>
+                            </div> 
+                        </div>
+                        {% endfor %}
+                    
+                </div>
+    </div>
+
+{% endblock content %}

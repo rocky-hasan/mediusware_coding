@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% block content %}
+    <h1>Task Manager Delete </h1>
+    <form method="post" action="" enctype="multipart/form-data">
+        {% csrf_token %}
+        <table class="table table-bordered">
+            <tr>
+                <td colspan="2">
+                    <button type="submit">Delete Task</button>
+                </td>
+            </tr>
+        </table>
+	</form>
+        <a href="{% url 'list-task' %}">Cancel</a>
+{% endblock content %}
