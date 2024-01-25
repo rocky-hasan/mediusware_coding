@@ -16,6 +16,9 @@
                                     <h5 class="card-title">
                                         <a href="{% url 'detail-task' data.id %}">{{ data.title }}</a><p>Created By: {{data.task_create_by}}</p>
                                     </h5>
+                                {% for task_type in data.task_type_name.all %}
+                                    <p class="card-text">Task Type: {{ task_type.type_name }}</p>
+                                {% endfor %}
                                     <p class="card-text">Description: {{ data.description }}</p>
                                     <p class="card-text">Created: {{ data.create_date }}</p>
                                     <p class="card-text">Due Date: {{ data.due_date }}</p>

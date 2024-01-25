@@ -7,6 +7,12 @@ class User(models.Model):
     def __str__(self) -> str:
         return str(self.username)
 
+
+class Type(models.Model):
+    type_name=models.CharField(max_length=100)
+    def __str__(self) -> str:
+        return str(self.type_name)
+
 Priority_Choices=(
     ('low','low'),
     ('medium','medium'),
@@ -15,6 +21,7 @@ Priority_Choices=(
 
 class Task(models.Model):
     task_create_by=models.ForeignKey(User,on_delete=models.CASCADE, null=True,blank=True)
+    task_type_name=models.ManyToManyField(Type,blank=True)
     title=models.CharField(max_length=100)
     description=models.TextField()
     image=models.ImageField(upload_to='Task/',blank=True,null=True)
