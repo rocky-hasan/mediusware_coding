@@ -1,7 +1,7 @@
 # mediusware_coding
 coding test
 
--Here first create repo: div.0.0.1
+-Here first create repo: div.0.0.1 \n
 -then clone it.
 -then create venv: python -m venv env
 and run the env. Inte env install django,pillow , rest_framework,psychopg2
